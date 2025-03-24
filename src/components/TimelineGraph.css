@@ -1,0 +1,226 @@
+.timeline-container {
+  width: 100%;
+  padding: 2rem;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  border-radius: 12px;
+  margin: 1.5rem 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.timeline-title {
+  color: #fff;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.8rem;
+  background: linear-gradient(to right, #DA22FF, #9733EE);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px rgba(218, 34, 255, 0.3);
+}
+
+.timeline-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  border-top: 4px solid #DA22FF;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 15px rgba(218, 34, 255, 0.3);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.timeline-empty {
+  text-align: center;
+  padding: 2rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.timeline-content {
+  position: relative;
+  margin: 2rem 0;
+}
+
+.timeline-track {
+  position: relative;
+  padding: 40px 0;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #9733EE, #DA22FF);
+  transform: translateY(-50%);
+  box-shadow: 0 0 10px rgba(218, 34, 255, 0.5);
+  z-index: 1;
+}
+
+.timeline-node {
+  position: relative;
+  margin: 40px 0;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
+.timeline-node:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.timeline-connector {
+  width: 20px;
+  height: 40px;
+  position: relative;
+}
+
+.timeline-connector::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #9733EE, #DA22FF);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.timeline-event-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #9733EE, #DA22FF);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(218, 34, 255, 0.5);
+  z-index: 3;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  margin: 0 20px;
+}
+
+.timeline-event-card {
+  flex: 1;
+  max-width: 80%;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 4px solid #DA22FF;
+}
+
+.timeline-node:nth-child(even) .timeline-event-card {
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 4px solid #DA22FF;
+}
+
+.event-year {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.event-year span:first-child {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #DA22FF;
+}
+
+.event-period {
+  font-size: 0.8rem;
+  padding: 3px 10px;
+  background: rgba(218, 34, 255, 0.2);
+  border-radius: 15px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.event-content h3 {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.event-preview {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.4;
+}
+
+.timeline-ending {
+  margin-top: 50px;
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ending-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.ending-quote {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .timeline-event-card {
+    max-width: 75%;
+  }
+  
+  .timeline-node {
+    flex-direction: column !important;
+    align-items: flex-start;
+    margin-left: 30px;
+  }
+  
+  .timeline-event-icon {
+    margin: 10px 0;
+  }
+  
+  .timeline-event-card {
+    max-width: 100%;
+    border-left: 4px solid #DA22FF !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+  
+  .timeline-line {
+    left: 30px;
+    right: auto;
+    width: 4px;
+    height: 100%;
+    top: 0;
+    transform: none;
+  }
+  
+  .timeline-connector {
+    display: none;
+  }
+} 
